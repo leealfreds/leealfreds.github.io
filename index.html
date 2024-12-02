@@ -1,18 +1,76 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8"/>
+<head>
+    <style>
+        .container {
+            display: flex; 
+            gap: 20px;
+        }
+
+        .box {
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .left {
+            flex: 2; 
+            background-color: #b0c4de; 
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right {
+            flex: 1; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-right, .bottom-right {
+            flex: 1; 
+            background-color: #dcdcdc; 
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .top-right {
+            background-color: #b0c4de; 
+        }
+
+        .bottom-right {
+            background-color: #98fb98;
+        }
+
+    </style>
+    <meta charset="UTF-8" />
     <title>Project 3 - Visualization</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
-  </head>
-  <body>
+</head>
 
-    <h1></h1>
-    <div>
-        <svg id="tree"></svg>
+<body>
+
+
+    <div class="container">
+        <div id="leftHolder" class="left">
+            <svg id="tree"></svg>
+        </div>
+        <div class="right">
+            <div class="top-right">
+                Top Right
+            </div>
+            <div class="bottom-right">
+                Bottom Right
+            </div>
+        </div>
     </div>
-
+    <div class="tooltip"></div>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>

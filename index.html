@@ -3,24 +3,32 @@
 <html>
 <head>
     <style>
+        body {
+            background-color: #121212; 
+            color: #E0E0E0; 
+            font-family: Arial, sans-serif;
+        }
+
         .container {
             display: flex; 
-            gap: 20px;
+            gap: 10px;
         }
 
         .box {
-            background-color: lightblue;
+            background-color: #2C2C2C;
+            color: #E0E0E0;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        
+
         .left {
-            flex: 2; 
-            background-color: #b0c4de; 
-            padding: 10px;
+            flex: 2;
+            background-color: #1E1E1E;
+            padding: 5px;
             display: flex;
             justify-content: center;
+            border: 0.5px solid #ccc;
             align-items: center;
         }
 
@@ -31,22 +39,49 @@
         }
 
         .top-right, .bottom-right {
-            flex: 1; 
-            background-color: #dcdcdc; 
+            flex: 1;
+            background-color: #1E1E1E;
             padding: 20px;
             display: flex;
+            overflow-y: scroll;
             justify-content: center;
+            border: 0.5px solid #ccc;
+            position: relative;
+        }
+
+        .switch {
+            padding: 2px;
+            align-self: start;
+                
+        }
+        .button-holder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 60px;
+        }
+        #heatmap-container {
+            display: flex;
+            justify-content: flex-start;
             align-items: center;
         }
 
-
-        .top-right {
-            background-color: #b0c4de; 
+        .dropdown {
+            background-color: #2C2C2C;
+            color: #E0E0E0;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        .checkbox-label {
+            color: #E0E0E0; 
+            font-size: 10px; 
+        }
+        .checkbox-container {
+            display: flex;
+            align-items: center; 
+            gap: 2px; 
         }
 
-        .bottom-right {
-            background-color: #98fb98;
-        }
 
     </style>
     <meta charset="UTF-8" />
@@ -63,13 +98,24 @@
         </div>
         <div class="right">
             <div class="top-right">
-                Top Right
+                <div id="scatterplot-container">
+                    <svg id="scatterplot"></svg>
+                </div>
             </div>
-            <div class="bottom-right">
-                Bottom Right
-            </div>
+
+                <div id="heatmap-container" class="scrollable-container">
+                    <div id="bottom-right" class="bottom-right">
+                        <div id="button-holder" class="button-holder">
+                            <select id="dropdown"></select>
+                            <div class="checkbox-container">
+                                <input id="switchLeast" class="switch" type="checkbox">
+                                <label for="switchLeast" class="checkbox-label">Least Concerned</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          </div>
         </div>
-    </div>
     <div class="tooltip"></div>
     <script src="script.js"></script>
 </body>
